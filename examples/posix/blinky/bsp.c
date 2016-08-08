@@ -31,7 +31,7 @@
 * http://www.state-machine.com
 * mailto:info@state-machine.com
 *****************************************************************************/
-#include "qpc.h"
+#include "qpc/include/qpc.h"
 #include "bsp.h"
 
 #include <stdlib.h>

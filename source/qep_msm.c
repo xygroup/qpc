@@ -42,7 +42,7 @@
 #ifdef Q_SPY              /* QS software tracing enabled? */
     #include "../ports/posix/qs_port.h"  /* include QS port */
 #else
-    #include "qs_dummy.h" /* disable the QS software tracing */
+    #include "../include/qs_dummy.h" /* disable the QS software tracing */
 #endif /* Q_SPY */
 
 Q_DEFINE_THIS_MODULE("qep_msm")

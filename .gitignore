@@ -54,3 +54,5 @@ output/
 doxygen/html/
 lint/*.txt
 lint/MISRA_Exemplar_Suite_test/*.txt
+
+_xcode/

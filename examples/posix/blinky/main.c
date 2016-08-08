@@ -31,9 +31,10 @@
 * Web  : http://www.state-machine.com
 * Email: info@state-machine.com
 *****************************************************************************/
-#include "qpc.h"
+#include "qpc/include/qpc.h"
 #include "blinky.h"
 #include "bsp.h"
+#include "qpc/include/qstamp.c"
 
 /*..........................................................................*/
 int main() {

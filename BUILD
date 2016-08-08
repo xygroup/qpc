@@ -15,17 +15,18 @@ cc_library(
         "source/qf_time.c",
         "source/qf_pkg.h",
         "ports/posix/qf_port.c",
-        "source/qs.c",
-        "source/qs_rx.c",
-        "source/qs_fp.c",
-        "source/qs_64bit.c",
-        "source/qs_pkg.h",
+        # "source/qs.c",
+        # "source/qs_rx.c",
+        # "source/qs_fp.c",
+        # "source/qs_64bit.c",
+        # "source/qs_pkg.h",
         "source/qk_mutex.c",
         "source/qk.c",
         "source/qk_pkg.h",
     ],
     hdrs = [
         "include/qassert.h",
+        "include/qstamp.c",
         "include/qep.h",
         "ports/posix/qep_port.h",
         "include/qequeue.h",
@@ -37,13 +38,30 @@ cc_library(
         "include/qpc.h",
         "include/qpset.h",
         "include/qs_dummy.h",
-        "include/qs.h",
+        # "include/qs.h",
         "ports/posix/qs_port.h",
     ],
     copts = [
         "-Wall",
-        "-DQ_SPY",
+        # "-DQ_SPY",
     ],
     linkstatic = 1,
     visibility = ["//visibility:public"],
+)
+
+cc_binary(
+    name = "blinky",
+    srcs = [
+        "examples/posix/blinky/blinky.h",
+        "examples/posix/blinky/blinky.c",
+        "examples/posix/blinky/bsp.h",
+        "examples/posix/blinky/bsp.c",
+        "examples/posix/blinky/main.c",
+    ],
+    copts = [
+        "-DQP_API_VERSION=9999",
+    ],
+    deps = [
+        "//qpc",
+    ],
 )

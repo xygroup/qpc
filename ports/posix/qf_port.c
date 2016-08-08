@@ -44,7 +44,7 @@
 #ifdef Q_SPY              /* QS software tracing enabled? */
     #include "qs_port.h"  /* include QS port */
 #else
-    #include "qs_dummy.h" /* disable the QS software tracing */
+    #include "../../include/qs_dummy.h" /* disable the QS software tracing */
 #endif /* Q_SPY */
 
 #include <limits.h>       /* for PTHREAD_STACK_MIN */

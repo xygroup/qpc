@@ -51,11 +51,11 @@ extern "C" {
 #endif
 
 /****************************************************************************/
-#include "qf_port.h"      /* QF/C port from the port directory */
+#include "../ports/posix/qf_port.h"      /* QF/C port from the port directory */
 #include "qassert.h"      /* QP embedded systems-friendly assertions */
 
 #ifdef Q_SPY /* software tracing enabled? */
-    #include "qs_port.h"  /* QS/C port from the port directory */
+    #include "../ports/posix/qs_port.h"  /* QS/C port from the port directory */
 #else
     #include "qs_dummy.h" /* QS/C dummy (inactive) interface */
 #endif
