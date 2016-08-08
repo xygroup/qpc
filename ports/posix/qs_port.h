@@ -58,6 +58,6 @@
 * *before* "qs.h".
 */
 #include "qf_port.h"  /* use QS with QF */
-#include "qs.h"       /* QS platform-independent public interface */
+#include "../../include/qs.h"       /* QS platform-independent public interface */
 
 #endif /* qs_port_h  */

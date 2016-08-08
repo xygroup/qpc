@@ -38,9 +38,9 @@
 * @endcond
 */
 #define QP_IMPL           /* this is QP implementation */
-#include "qf_port.h"      /* QF port */
+#include "../ports/posix/qf_port.h"      /* QF port */
 #include "qf_pkg.h"       /* QF package-scope interface */
-#include "qassert.h"      /* QP embedded systems-friendly assertions */
+#include "../include/qassert.h"      /* QP embedded systems-friendly assertions */
 
 Q_DEFINE_THIS_MODULE("qf_defer")
 

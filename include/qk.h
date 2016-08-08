@@ -64,7 +64,7 @@
 * The use of this member depends on the CPU. For example, in port to
 * ARM Cortex-M with FPU this member is used to store the LR.
 */
-#define QF_OS_OBJECT_TYPE      void*
+// #define QF_OS_OBJECT_TYPE      void*
 
 /*! OS-dependent representation of the private thread */
 /**
@@ -72,7 +72,7 @@
 * QK uses this member to store the start priority of the AO,
 * which is needed when the QK priority-ceiling mutex is used.
 */
-#define QF_THREAD_TYPE         uint_fast8_t
+// #define QF_THREAD_TYPE         uint_fast8_t
 
 #if (QF_MAX_ACTIVE <= 8)
     extern QPSet8  QK_readySet_; /*!< QK ready-set of AOs */
@@ -155,20 +155,20 @@ extern uint_fast8_t volatile QK_lockPrio_;   /*!< lock prio (0 == no-lock) */
     /*! Internal port-specific macro to represent the scheduler lock status
     * that needs to be preserved to allow nesting of locks.
     */
-    #define QF_SCHED_STAT_TYPE_ QMutex
+    // #define QF_SCHED_STAT_TYPE_ QMutex
 
     /*! Internal port-specific macro for selective scheduler locking. */
-    #define QF_SCHED_LOCK_(pLockStat_, prio_) do { \
-        if (QK_ISR_CONTEXT_()) { \
-            (pLockStat_)->lockPrio = (uint_fast8_t)(QF_MAX_ACTIVE + 1); \
-        } else { \
-            QMutex_init((pLockStat_), (prio_)); \
-            QMutex_lock((pLockStat_)); \
-        } \
-    } while (0)
+    // #define QF_SCHED_LOCK_(pLockStat_, prio_) do { \
+    //     if (QK_ISR_CONTEXT_()) { \
+    //         (pLockStat_)->lockPrio = (uint_fast8_t)(QF_MAX_ACTIVE + 1); \
+    //     } else { \
+    //         QMutex_init((pLockStat_), (prio_)); \
+    //         QMutex_lock((pLockStat_)); \
+    //     } \
+    // } while (0)
 
     /*! Internal port-specific macro for selective scheduler unlocking. */
-    #define QF_SCHED_UNLOCK_(pLockStat_) QMutex_unlock((pLockStat_))
+    // #define QF_SCHED_UNLOCK_(pLockStat_) QMutex_unlock((pLockStat_))
 
     #if (QF_MAX_ACTIVE <= 8)
         #define QK_prioNotEmpty(set_)    QPSet8_notEmpty((set_))
@@ -184,29 +184,29 @@ extern uint_fast8_t volatile QK_lockPrio_;   /*!< lock prio (0 == no-lock) */
         #define QK_prioRemove(set_, p_)  QPSet64_remove((set_), (p_))
     #endif
 
-    #define QACTIVE_EQUEUE_WAIT_(me_) \
-        (Q_ASSERT_ID(0, (me_)->eQueue.frontEvt != (QEvt *)0))
+    // #define QACTIVE_EQUEUE_WAIT_(me_) \
+    //     (Q_ASSERT_ID(0, (me_)->eQueue.frontEvt != (QEvt *)0))
 
-    #define QACTIVE_EQUEUE_SIGNAL_(me_) do { \
-        QK_prioInsert(&QK_readySet_, (me_)->prio); \
-        if (!QK_ISR_CONTEXT_()) { \
-            uint_fast8_t p = QK_schedPrio_(); \
-            if (p != (uint_fast8_t)0) { \
-                QK_sched_(p); \
-            } \
-        } \
-    } while (0)
+    // #define QACTIVE_EQUEUE_SIGNAL_(me_) do { \
+    //     QK_prioInsert(&QK_readySet_, (me_)->prio); \
+    //     if (!QK_ISR_CONTEXT_()) { \
+    //         uint_fast8_t p = QK_schedPrio_(); \
+    //         if (p != (uint_fast8_t)0) { \
+    //             QK_sched_(p); \
+    //         } \
+    //     } \
+    // } while (0)
 
-    #define QACTIVE_EQUEUE_ONEMPTY_(me_) \
-        QK_prioRemove(&QK_readySet_, (me_)->prio)
+    // #define QACTIVE_EQUEUE_ONEMPTY_(me_) \
+    //     QK_prioRemove(&QK_readySet_, (me_)->prio)
 
     /* native QF event pool operations */
-    #define QF_EPOOL_TYPE_            QMPool
-    #define QF_EPOOL_INIT_(p_, poolSto_, poolSize_, evtSize_) \
-        (QMPool_init(&(p_), (poolSto_), (poolSize_), (evtSize_)))
-    #define QF_EPOOL_EVENT_SIZE_(p_)  ((uint_fast16_t)(p_).blockSize)
-    #define QF_EPOOL_GET_(p_, e_, m_) ((e_) = (QEvt *)QMPool_get(&(p_), (m_)))
-    #define QF_EPOOL_PUT_(p_, e_)     (QMPool_put(&(p_), (e_)))
+    // #define QF_EPOOL_TYPE_            QMPool
+    // #define QF_EPOOL_INIT_(p_, poolSto_, poolSize_, evtSize_) \
+    //     (QMPool_init(&(p_), (poolSto_), (poolSize_), (evtSize_)))
+    // #define QF_EPOOL_EVENT_SIZE_(p_)  ((uint_fast16_t)(p_).blockSize)
+    // #define QF_EPOOL_GET_(p_, e_, m_) ((e_) = (QEvt *)QMPool_get(&(p_), (m_)))
+    // #define QF_EPOOL_PUT_(p_, e_)     (QMPool_put(&(p_), (e_)))
 
 #endif /* QP_IMPL */
 

@@ -37,9 +37,9 @@
 ******************************************************************************
 * @endcond
 */
-#include "qs_port.h"      /* QS port */
+#include "../ports/posix/qs_port.h"      /* QS port */
 #include "qs_pkg.h"       /* QS package-scope interface */
-#include "qassert.h"      /* QP embedded systems-friendly assertions */
+#include "../include/qassert.h"      /* QP embedded systems-friendly assertions */
 
 Q_DEFINE_THIS_MODULE("qs")
 

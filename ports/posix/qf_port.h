@@ -68,9 +68,10 @@
 
 #include <pthread.h>    /* POSIX-thread API */
 #include "qep_port.h"   /* QEP port */
-#include "qequeue.h"    /* POSIX needs event-queue */
-#include "qmpool.h"     /* POSIX needs memory-pool */
-#include "qf.h"         /* QF platform-independent public interface */
+#include "../../include/qequeue.h"    /* POSIX needs event-queue */
+#include "../../include/qmpool.h"     /* POSIX needs memory-pool */
+#include "../../include/qf.h"         /* QF platform-independent public interface */
+#include "../../include/qk.h"         /* QF platform-independent public interface */
 
 void QF_setTickRate(uint32_t ticksPerSec); /* set clock tick rate */
 void QF_onClockTick(void); /* clock tick callback (provided in the app) */

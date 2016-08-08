@@ -39,8 +39,8 @@
 */
 #define QP_IMPL           /* this is QP implementation */
 #include "qf_port.h"      /* QF port */
-#include "qf_pkg.h"
-#include "qassert.h"
+#include "../../source/qf_pkg.h"
+#include "../../include/qassert.h"
 #ifdef Q_SPY              /* QS software tracing enabled? */
     #include "qs_port.h"  /* include QS port */
 #else

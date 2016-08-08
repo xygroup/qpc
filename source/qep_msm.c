@@ -37,10 +37,10 @@
 ******************************************************************************
 * @endcond
 */
-#include "qep_port.h"     /* QEP port */
-#include "qassert.h"      /* QP embedded systems-friendly assertions */
+#include "../ports/posix/qep_port.h"     /* QEP port */
+#include "../include/qassert.h"      /* QP embedded systems-friendly assertions */
 #ifdef Q_SPY              /* QS software tracing enabled? */
-    #include "qs_port.h"  /* include QS port */
+    #include "../ports/posix/qs_port.h"  /* include QS port */
 #else
     #include "qs_dummy.h" /* disable the QS software tracing */
 #endif /* Q_SPY */

@@ -38,7 +38,7 @@
 * @endcond
 */
 
-#include "qs_port.h" /* QS port */
+#include "../ports/posix/qs_port.h" /* QS port */
 
 #if (QS_OBJ_PTR_SIZE == 8) || (QS_FUN_PTR_SIZE == 8)
 
